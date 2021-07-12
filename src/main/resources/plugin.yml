@@ -1,0 +1,12 @@
+name: mc-auth-plugin
+main: com.developer.AuthPlugin
+version: 1.0
+api-version: 1.16
+
+commands:
+  login:
+    usage: /login [password]
+    description: Use this command to login.
+  register:
+    usage: /register [password] [email]
+    description: Use this command to register.
