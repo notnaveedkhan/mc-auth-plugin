@@ -1,5 +1,6 @@
 package com.developer;
 
+import com.developer.commands.ForgotCommand;
 import com.developer.commands.LoginCommand;
 import com.developer.commands.RegisterCommand;
 import com.developer.database.Database;
@@ -21,6 +22,7 @@ public class AuthPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerAuthenticationEvent(), this);
         getCommand("register").setExecutor(new RegisterCommand());
         getCommand("login").setExecutor(new LoginCommand());
+        getCommand("forgot").setExecutor(new ForgotCommand());
     }
 
     @Override

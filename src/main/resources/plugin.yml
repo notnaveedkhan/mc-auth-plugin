@@ -10,3 +10,6 @@ commands:
   register:
     usage: /register [password] [email]
     description: Use this command to register.
+  forgot:
+    usage: /forgot
+    description: Use this command to receive your password through email.
