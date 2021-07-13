@@ -3,19 +3,11 @@ package com.developer.models;
 import java.io.Serializable;
 
 public class User implements Serializable {
+
     private int id;
-    private String name;
+    private String username;
     private String email;
     private String password;
-
-    public User(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-    }
-
-    public User() {
-    }
 
     public int getId() {
         return id;
@@ -25,12 +17,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
