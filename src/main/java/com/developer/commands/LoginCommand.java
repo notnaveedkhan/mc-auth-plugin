@@ -1,7 +1,10 @@
 package com.developer.commands;
 
 import com.developer.AuthPlugin;
+import com.developer.models.Detail;
 import com.developer.models.User;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -21,6 +24,15 @@ public class LoginCommand implements CommandExecutor {
                     String password = strings[0];
                     User user = AuthPlugin.database.getUserByUsername(player.getName());
                     if (user.getPassword().equals(password)) {
+                        Detail detail = AuthPlugin.database.getDetailByUserId(user.getId());
+                        if (detail == null) {
+                            player.sendMessage("[Error] Your login details are not saved. Please contact admins.");
+                        } else {
+                            Location location = new Location( AuthPlugin.getWorld(detail.getWorldName()), detail.getX(), detail.getY(), detail.getZ());
+                            player.teleport(location);
+                            player.setGameMode(GameMode.SURVIVAL);
+                        }
+                        AuthPlugin.users.add(user);
                         player.sendMessage("Logged In successfully.");
                     } else {
                         player.sendMessage("[Error] Incorrect password.");
